@@ -1,19 +1,22 @@
 'use strict';
 
-const inputs = document.querySelectorAll('.field');
-const line = Array.from(inputs);
-
-const labelsText = ['First Name', 'Last Name', 'Email', 'Password', 'Email', 'Password',];
+const fields = document.querySelectorAll('.field');
+const line = Array.from(fields);
 
 line.forEach((element, index) => {
-    const input = element.querySelector('input');
-    const label = document.createElement('label');
-    label.setAttribute('for', input.id);
-    label.textContent = labelsText[index];
-    label.style.fontWeight = 'bold';
-    label.style.textTransform = 'uppercase';
+  const input = element.querySelector('input');
+  const label = document.createElement('label');
+  const labelText = input.name;
 
-    input.setAttribute('placeholder', labelsText[index]);
+  label.setAttribute('for', input.id);
+  label.textContent = labelText;
 
-    element.insertBefore(label, input);
+  label.style.fontWeight = 'bold';
+  label.style.textTransform = 'uppercase';
+
+  let text = label.textContent;
+  let capitalizedText = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+  input.setAttribute('placeholder', capitalizedText);
+
+  element.insertBefore(label, input);
 });
