@@ -14,8 +14,10 @@ line.forEach((element, index) => {
   label.style.fontWeight = 'bold';
   label.style.textTransform = 'uppercase';
 
-  let text = label.textContent;
-  let capitalizedText = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+  const text = label.textContent;
+  const capitalizedText =
+    text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+
   input.setAttribute('placeholder', capitalizedText);
 
   element.insertBefore(label, input);
